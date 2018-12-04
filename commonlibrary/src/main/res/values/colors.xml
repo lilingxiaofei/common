@@ -26,6 +26,7 @@
     <color name="t_black">#333333</color>
     <color name="t_red">#CD3333</color>
     <color name="t_gray">#999999</color>
+    <color name="t_grey">#666666</color>
     <color name="t_orange">#FF9600</color>
 
     <color name="my_buy_bg">#e57d00</color>
