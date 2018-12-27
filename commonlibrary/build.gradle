@@ -78,5 +78,7 @@ dependencies {
     //评分控件
     api 'me.zhanghai.android.materialratingbar:library:1.3.1'
 
+    //zxing控件
+    api 'cn.bingoogolapple:bga-qrcode-zxing:1.3.6'
 }
 
