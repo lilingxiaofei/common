@@ -20,6 +20,7 @@
     <color name="bg_red">#B31F3F</color>
     <color name="bg_user">#CD2990</color>
     <color name="bg_orange">#FF9600</color>
+    <color name="bg_yellow">#EEE000</color>
     <color name="line">#EEEEEE</color>
 
     <color name="t_white">#FFFFFF</color>
@@ -29,6 +30,7 @@
     <color name="t_grey">#666666</color>
     <color name="t_orange">#FF9600</color>
     <color name="t_blue">#00A1FE</color>
+    <color name="t_yellow">#EEE000</color>
 
     <color name="my_buy_bg">#e57d00</color>
     <color name="my_sell_bg">#0c95f5</color>
