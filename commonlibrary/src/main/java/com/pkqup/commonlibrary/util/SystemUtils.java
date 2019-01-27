@@ -1,13 +1,12 @@
 package com.pkqup.commonlibrary.util;
 
 import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -858,4 +857,15 @@ public class SystemUtils {
     }
 
 
+
+    public static void copyContent(Context context,String copyContent){
+        ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        int sdk=android.os.Build.VERSION.SDK_INT;
+        if(sdk>=11){
+            cm.setPrimaryClip(ClipData.newPlainText(copyContent,copyContent));
+        }else{
+            cm.setText(copyContent);
+        }
+        ToastUtils.showShort("复制成功");
+    }
 }
