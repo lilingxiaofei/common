@@ -15,6 +15,7 @@ public class ResultBean<T>{
     private String sign;
     private String url;
 
+    private Boolean result;
     private int errorcode;
     private String msg;
     private T data;
@@ -105,5 +106,13 @@ public class ResultBean<T>{
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Boolean getResult() {
+        return result;
+    }
+
+    public void setResult(Boolean result) {
+        this.result = result;
     }
 }
