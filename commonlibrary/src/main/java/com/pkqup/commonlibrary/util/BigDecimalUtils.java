@@ -20,6 +20,22 @@ public class BigDecimalUtils {
         return b1.add(b2).doubleValue();
     }
 
+    public static BigDecimal substractObj(Object v1, Object v2) {
+        BigDecimal b1 = null;
+        BigDecimal b2 = null;
+        try {
+            b1 = new BigDecimal(v1.toString());
+            b2 = new BigDecimal(v2.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(b1 == null && b2 == null){
+            return null;
+        }
+        return b1.subtract(b2);
+    }
+
+
     /**
      * 提供精确的加法运算
      *
