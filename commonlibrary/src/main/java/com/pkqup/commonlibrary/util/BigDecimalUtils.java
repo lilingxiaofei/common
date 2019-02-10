@@ -20,6 +20,26 @@ public class BigDecimalUtils {
         return b1.add(b2).doubleValue();
     }
 
+
+    public static BigDecimal objToBigDecimal(Object obj) {
+        BigDecimal big = new BigDecimal(0);
+        try {
+            big = new BigDecimal(obj.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return big;
+    }
+
+
+    public static String objToStr(Object obj,int scale) {
+        BigDecimal big = objToBigDecimal(obj);
+        return big.setScale(scale, BigDecimal.ROUND_HALF_UP).toString();
+    }
+
+//
+
+
     public static BigDecimal substractObj(Object v1, Object v2) {
         BigDecimal b1 = null;
         BigDecimal b2 = null;
