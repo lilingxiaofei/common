@@ -15,7 +15,7 @@ public class ResultBean<T>{
     private String sign;
     private String url;
 
-    private Boolean result;
+    private boolean result;
     private int errorcode;
     private String msg;
     private T data;
