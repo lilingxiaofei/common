@@ -41,7 +41,8 @@ public class SPUtils {
         } else if (object instanceof Long) {
             editor.putLong(key, (Long) object);
         } else {
-            editor.putString(key, object.toString());
+            String str = object==null?"":object.toString();
+            editor.putString(key,str);
         }
 
         SharedPreferencesCompat.apply(editor);
