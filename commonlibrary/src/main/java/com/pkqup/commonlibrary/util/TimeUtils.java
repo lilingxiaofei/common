@@ -33,6 +33,9 @@ public class TimeUtils {
      * 毫秒值转换为完整日期
      */
     public static String millisToDate(String millis) {
+        if(millis != null && millis.length()==10){
+            millis = millis + "000";
+        }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATA_AND_TIME, Locale.getDefault());
         Date date = new Date(Long.valueOf(millis));
         return simpleDateFormat.format(date);
