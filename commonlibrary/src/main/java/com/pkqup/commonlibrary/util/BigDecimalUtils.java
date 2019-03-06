@@ -36,7 +36,9 @@ public class BigDecimalUtils {
         BigDecimal big = objToBigDecimal(obj);
         return big.setScale(scale, BigDecimal.ROUND_HALF_UP).toString();
     }
-
+    public static String objToStr(Object obj) {
+        return objToStr(obj,2);
+    }
 //
 
 
