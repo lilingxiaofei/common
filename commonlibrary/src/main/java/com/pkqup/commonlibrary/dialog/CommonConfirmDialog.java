@@ -53,8 +53,8 @@ public class CommonConfirmDialog extends Dialog {
         tv_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dismiss();
                 if (null != callBack) {
-                    dismiss();
                     callBack.onConfirm();
                 }
             }
@@ -62,8 +62,8 @@ public class CommonConfirmDialog extends Dialog {
         tv_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dismiss();
                 if (null != callBack) {
-                    dismiss();
                     callBack.onCancel();
                 }
             }
