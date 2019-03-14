@@ -54,7 +54,22 @@ public class GlideUtils {
                 .load(url)
                 .format(DecodeFormat.PREFER_RGB_565)//像素类型
                 .diskCacheStrategy(DiskCacheStrategy.ALL)//缓存所有尺寸
-                .error(R.mipmap.common_head_icon)
+                .error(R.mipmap.error_shop)
+                .into(imageView);
+
+//        GlideApp.with(context)
+//                .load(url)
+//                .format(DecodeFormat.PREFER_RGB_565)//像素类型
+//                .diskCacheStrategy(DiskCacheStrategy.ALL)//缓存所有尺寸
+//                .error(R.mipmap.common_head_icon)
+//                .into(imageView);
+    }
+    public static void loadImageHeadTwo(Context context, Object url, ImageView imageView) {
+        GlideApp.with(context)
+                .load(url)
+                .format(DecodeFormat.PREFER_RGB_565)//像素类型
+                .diskCacheStrategy(DiskCacheStrategy.ALL)//缓存所有尺寸
+                .error(R.mipmap.error_shop)
                 .into(imageView);
     }
 
