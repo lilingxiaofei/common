@@ -33,14 +33,15 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 public class HttpUtils {
 
-//    public static String BASE_URL = "http://test.chunlangjiu.com/";//测试域名
-    public static String BASE_URL = "http://mall.chunlangjiu.com/";//正式域名
+    public static String BASE_URL = "http://test.chunlangjiu.com/";//测试域名
+//    public static String BASE_URL = "http://mall.chunlangjiu.com/";//正式域名
+
 
     private volatile static HttpUtils mInstance;
     private Retrofit mRetrofit;
 
 
-    // 获取网络请求的单例（双重校验锁的单例模式）
+    // 获取网络请求的单例（ ）
     public static HttpUtils getInstance() {
         if (mInstance == null) {
             synchronized (HttpUtils.class) {
