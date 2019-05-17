@@ -18,7 +18,7 @@ import com.pkqup.commonlibrary.R;
 /**
  * Created by Cheng Bao on 2015/6/17.
  */
-public class ClearEditText extends EditText implements View.OnFocusChangeListener,TextWatcher {
+public class ClearEditTextOld extends EditText implements View.OnFocusChangeListener,TextWatcher {
     /**
      * 删除按钮的引用
      */
@@ -30,18 +30,18 @@ public class ClearEditText extends EditText implements View.OnFocusChangeListene
      */
     private boolean hasFocus;
 
-    public ClearEditText(Context context) {
+    public ClearEditTextOld(Context context) {
         this(context,null);
 //        super(context);
 //        this.context = context;
 //        init();
     }
-    public ClearEditText(Context context, AttributeSet attrs){
+    public ClearEditTextOld(Context context, AttributeSet attrs){
         //这里构造方法也很重要，不加这个很多属性不能再XML里面定义
         this(context, attrs, android.R.attr.editTextStyle);
     }
 
-    public ClearEditText(Context context, AttributeSet attrs, int defStyle) {
+    public ClearEditTextOld(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
