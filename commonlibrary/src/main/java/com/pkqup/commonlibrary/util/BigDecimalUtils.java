@@ -41,6 +41,10 @@ public class BigDecimalUtils {
     }
 //
 
+    public static String objToStrNoCanDecimals(Object obj) {
+        BigDecimal big = objToBigDecimal(obj);
+        return big.toString();
+    }
 
     public static BigDecimal substractObj(Object v1, Object v2) {
         BigDecimal b1 = null;
