@@ -7,6 +7,18 @@ public class BigDecimalUtils {
 
     private static final int DEF_DIV_SCALE = 10;
 
+
+
+    public static BigDecimal newBigDecimal(Object obj){
+        BigDecimal big = null ;
+        try {
+            big = new BigDecimal(obj.toString());
+        } catch (Exception e) {
+            big = new BigDecimal(0);
+            e.printStackTrace();
+        }
+        return big ;
+    }
     /**
      * 提供精确的加法运算
      *
@@ -15,16 +27,16 @@ public class BigDecimalUtils {
      * @return 两个参数的和
      */
     public static double add(double v1, double v2) {
-        BigDecimal b1 = new BigDecimal(Double.toString(v1));
-        BigDecimal b2 = new BigDecimal(Double.toString(v2));
+        BigDecimal b1 = newBigDecimal(Double.toString(v1));
+        BigDecimal b2 = newBigDecimal(Double.toString(v2));
         return b1.add(b2).doubleValue();
     }
 
 
     public static BigDecimal objToBigDecimal(Object obj) {
-        BigDecimal big = new BigDecimal(0);
+        BigDecimal big = newBigDecimal(0);
         try {
-            big = new BigDecimal(obj.toString());
+            big = newBigDecimal(obj.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,8 +62,8 @@ public class BigDecimalUtils {
         BigDecimal b1 = null;
         BigDecimal b2 = null;
         try {
-            b1 = new BigDecimal(v1.toString());
-            b2 = new BigDecimal(v2.toString());
+            b1 = newBigDecimal(v1.toString());
+            b2 = newBigDecimal(v2.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -70,8 +82,8 @@ public class BigDecimalUtils {
      * @return 两个参数的和
      */
     public static BigDecimal add(String v1, String v2) {
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v2);
+        BigDecimal b1 = newBigDecimal(v1);
+        BigDecimal b2 = newBigDecimal(v2);
         return b1.add(b2);
     }
 
@@ -88,8 +100,8 @@ public class BigDecimalUtils {
             throw new IllegalArgumentException(
                     "The scale must be a positive integer or zero");
         }
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v2);
+        BigDecimal b1 = newBigDecimal(v1);
+        BigDecimal b2 = newBigDecimal(v2);
         return b1.add(b2).setScale(scale, BigDecimal.ROUND_HALF_UP).toString();
     }
 
@@ -101,8 +113,8 @@ public class BigDecimalUtils {
      * @return 两个参数的差
      */
     public static double substract(double v1, double v2) {
-        BigDecimal b1 = new BigDecimal(Double.toString(v1));
-        BigDecimal b2 = new BigDecimal(Double.toString(v2));
+        BigDecimal b1 = newBigDecimal(Double.toString(v1));
+        BigDecimal b2 = newBigDecimal(Double.toString(v2));
         return b1.subtract(b2).doubleValue();
     }
 
@@ -114,8 +126,8 @@ public class BigDecimalUtils {
      * @return 两个参数的差
      */
     public static BigDecimal substract(String v1, String v2) {
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v2);
+        BigDecimal b1 = newBigDecimal(v1);
+        BigDecimal b2 = newBigDecimal(v2);
         return b1.subtract(b2);
     }
 
@@ -132,8 +144,8 @@ public class BigDecimalUtils {
             throw new IllegalArgumentException(
                     "The scale must be a positive integer or zero");
         }
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v2);
+        BigDecimal b1 = newBigDecimal(v1);
+        BigDecimal b2 = newBigDecimal(v2);
         return b1.subtract(b2).setScale(scale, BigDecimal.ROUND_HALF_UP).toString();
     }
 
@@ -145,8 +157,8 @@ public class BigDecimalUtils {
      * @return 两个参数的积
      */
     public static double multiply(double v1, double v2) {
-        BigDecimal b1 = new BigDecimal(Double.toString(v1));
-        BigDecimal b2 = new BigDecimal(Double.toString(v2));
+        BigDecimal b1 = newBigDecimal(Double.toString(v1));
+        BigDecimal b2 = newBigDecimal(Double.toString(v2));
         return b1.multiply(b2).doubleValue();
     }
 
@@ -159,8 +171,8 @@ public class BigDecimalUtils {
      * @return 两个参数的积
      */
     public static double multiply(double v1, double v2, int scale) {
-        BigDecimal b1 = new BigDecimal(Double.toString(v1));
-        BigDecimal b2 = new BigDecimal(Double.toString(v2));
+        BigDecimal b1 = newBigDecimal(Double.toString(v1));
+        BigDecimal b2 = newBigDecimal(Double.toString(v2));
         return round(b1.multiply(b2).doubleValue(), scale);
     }
 
@@ -177,8 +189,8 @@ public class BigDecimalUtils {
             throw new IllegalArgumentException(
                     "The scale must be a positive integer or zero");
         }
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v2);
+        BigDecimal b1 = newBigDecimal(v1);
+        BigDecimal b2 = newBigDecimal(v2);
         return b1.multiply(b2).setScale(scale, BigDecimal.ROUND_HALF_UP).toString();
     }
 
@@ -209,8 +221,8 @@ public class BigDecimalUtils {
             throw new IllegalArgumentException("The scale must be a positive integer or zero");
         }
 
-        BigDecimal b1 = new BigDecimal(Double.toString(v1));
-        BigDecimal b2 = new BigDecimal(Double.toString(v2));
+        BigDecimal b1 = newBigDecimal(Double.toString(v1));
+        BigDecimal b2 = newBigDecimal(Double.toString(v2));
         return b1.divide(b2, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 
@@ -227,8 +239,8 @@ public class BigDecimalUtils {
         if (scale < 0) {
             throw new IllegalArgumentException("The scale must be a positive integer or zero");
         }
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v1);
+        BigDecimal b1 = newBigDecimal(v1);
+        BigDecimal b2 = newBigDecimal(v1);
         return b1.divide(b2, scale, BigDecimal.ROUND_HALF_UP).toString();
     }
 
@@ -244,8 +256,8 @@ public class BigDecimalUtils {
             throw new IllegalArgumentException("The scale must be a positive integer or zero");
         }
 
-        BigDecimal b = new BigDecimal(Double.toString(v));
-        BigDecimal one = new BigDecimal("1");
+        BigDecimal b = newBigDecimal(Double.toString(v));
+        BigDecimal one = newBigDecimal("1");
         return b.divide(one, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 
@@ -261,7 +273,7 @@ public class BigDecimalUtils {
             throw new IllegalArgumentException(
                     "The scale must be a positive integer or zero");
         }
-        BigDecimal b = new BigDecimal(v);
+        BigDecimal b = newBigDecimal(v);
         return b.setScale(scale, BigDecimal.ROUND_HALF_UP).toString();
     }
 
@@ -278,8 +290,8 @@ public class BigDecimalUtils {
             throw new IllegalArgumentException(
                     "The scale must be a positive integer or zero");
         }
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v2);
+        BigDecimal b1 = newBigDecimal(v1);
+        BigDecimal b2 = newBigDecimal(v2);
         return b1.remainder(b2).setScale(scale, BigDecimal.ROUND_HALF_UP).toString();
     }
 
@@ -326,7 +338,7 @@ public class BigDecimalUtils {
         //是负整数
         if (is_positive_integer) {
             //去掉 - 号
-            s = new BigDecimal(s.toString().substring(1, s.toString().length()));
+            s = newBigDecimal(s.toString().substring(1, s.toString().length()));
         }
         str = s.setScale(2, BigDecimal.ROUND_HALF_UP).toString();
         StringBuffer sb = new StringBuffer();
@@ -382,7 +394,7 @@ public class BigDecimalUtils {
         //是负整数
         if (is_positive_integer) {
             //去掉 - 号
-            s = new BigDecimal(s.toString().substring(1, s.toString().length()));
+            s = newBigDecimal(s.toString().substring(1, s.toString().length()));
         }
         str = s.setScale(2, BigDecimal.ROUND_HALF_UP).toString();
         StringBuffer sb = new StringBuffer();
@@ -421,7 +433,7 @@ public class BigDecimalUtils {
      */
     public static Boolean compareBigDecimal(String amount, double compare) {
 
-        BigDecimal lenth = new BigDecimal(amount);
+        BigDecimal lenth = newBigDecimal(amount);
         if (lenth.compareTo(BigDecimal.valueOf(compare)) == -1) {
             return false;
         }
