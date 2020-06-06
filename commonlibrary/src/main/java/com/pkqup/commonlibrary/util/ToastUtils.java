@@ -1,5 +1,6 @@
 package com.pkqup.commonlibrary.util;
 
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.widget.Toast;
 
@@ -36,7 +37,8 @@ public class ToastUtils {
     public static void showErrorMsg(Throwable throwable) {
         if (throwable instanceof ApiException) {
             ApiException apiException = (ApiException) throwable;
-            ToastUtils.showShort(apiException.getMessage());
+            String msg = TextUtils.isEmpty(apiException.getMessage())?"请求失败，请稍后重试":apiException.getMessage();
+            ToastUtils.showShort(msg);
         }
     }
 

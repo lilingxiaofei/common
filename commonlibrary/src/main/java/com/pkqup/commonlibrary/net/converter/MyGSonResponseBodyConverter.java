@@ -3,6 +3,7 @@ package com.pkqup.commonlibrary.net.converter;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
+import com.pkqup.commonlibrary.eventmsg.EventManager;
 import com.pkqup.commonlibrary.net.bean.ResultBean;
 import com.pkqup.commonlibrary.net.exception.ApiException;
 
@@ -31,6 +32,9 @@ public class MyGSonResponseBodyConverter<T> implements Converter<ResponseBody, T
         String response = value.string();
         ResultBean re = gson.fromJson(response, ResultBean.class);
         if (re.getErrorcode() != 0) {
+            if(re.getErrorcode() == 20001){
+                EventManager.getInstance().notify(null, "msg_logout_success");
+            }
             value.close();
             throw new ApiException(re.getMsg(), re.getErrorcode());
         }

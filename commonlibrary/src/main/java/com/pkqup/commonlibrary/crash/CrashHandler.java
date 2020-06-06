@@ -9,6 +9,8 @@ import android.os.Environment;
 import android.os.Process;
 import android.util.Log;
 
+import com.pkqup.commonlibrary.util.SPUtils;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -56,6 +58,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
         try {
+            SPUtils.put("errorLog",ex.getMessage());
             //导出异常信息到SD卡中
             dumpExceptionToSDCard(ex);
             uploadExceptionToServer();
@@ -98,7 +101,10 @@ public class CrashHandler implements UncaughtExceptionHandler {
             dumpPhoneInfo(pw);
             pw.println();
             ex.printStackTrace(pw);
+            String tempStr = "" ;
+            SPUtils.put("errorLogTwo",tempStr);
             pw.close();
+
         } catch (Exception e) {
             Log.e(TAG, "dump crash info failed");
         }
