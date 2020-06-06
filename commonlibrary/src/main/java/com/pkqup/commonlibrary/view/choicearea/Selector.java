@@ -199,15 +199,22 @@ public class Selector implements AdapterView.OnItemClickListener {
                     allDatas.get(tabIndex).addAll(data);
                     adapters[tabIndex].notifyDataSetChanged();
                     listView.setAdapter(adapters[tabIndex]);
+                    updateTabsVisibility(tabIndex);
+                    updateProgressVisibility();
+                    updateIndicator(tabIndex);
+                    tabIndex = tabIndex + 1 >= selectDeep ? selectDeep : tabIndex + 1;
                 } else {
                     //次级没有内容，直接回调
                     callbackInternal();
+                    updateTabsVisibility(tabIndex);
+                    updateProgressVisibility();
+                    updateIndicator(tabIndex);
                 }
 
-                updateTabsVisibility(tabIndex);
-                updateProgressVisibility();
-                updateIndicator(tabIndex);
-                tabIndex = tabIndex + 1 >= selectDeep ? selectDeep : tabIndex + 1;
+//                updateTabsVisibility(tabIndex);
+//                updateProgressVisibility();
+//                updateIndicator(tabIndex);
+//                tabIndex = tabIndex + 1 >= selectDeep ? selectDeep : tabIndex + 1;
             }
         });
     }
